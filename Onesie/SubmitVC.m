@@ -128,6 +128,11 @@
 }
 -(IBAction)postBtnPressed:(id)sender {
     //check to see there's an image and text/title
+    
+    //checking to see if they are allowed to post
+    PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
+//    [query whereKey:<#(NSString *)#> containedIn:(NSArray *)]
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
 //    [formatter setDateFormat:@"dd MMM"];

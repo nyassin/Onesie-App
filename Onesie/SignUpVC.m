@@ -58,6 +58,7 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             NSLog(@"user already exists");
+                                            NSLog(@"user_id : %@", user[@"objectId"]);
                                             [self dismissViewControllerAnimated:YES completion:nil];
                                         } else {
                                             // The login failed. Check error to see why.

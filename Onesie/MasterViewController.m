@@ -96,10 +96,7 @@
         else
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier2];
     }
-//    UIImageView *cellBackgroundImage = (UIImageView *)[cell viewWithTag:9];
-//    //essentail code to make sure the image is displayed correctly
-//    cellBackgroundImage.contentMode = UIViewContentModeScaleAspectFill;
-//    cellBackgroundImage.clipsToBounds = YES;
+
     NSLog(@"height %f", cell.frame.size.height );
 
     UILabel *title = (UILabel *)[cell viewWithTag:200];
@@ -118,9 +115,7 @@
         cellBackgroundImage.image = [UIImage imageWithData:data];
         [_images addObject:cellBackgroundImage.image];
     }];
-//    cellBackgroundImage.image = [UIImage imageWithData:object[@"image"]]//[UIImage imageNamed:@"onesie.jpg"];
-    
-//    cell.imageView.image = [UIImage imageNamed:@"onesie.jpg"];
+
 
     return cell;
 }
@@ -138,7 +133,6 @@
         PFObject *submission = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:submission];
         [[segue destinationViewController] setPassedImg:[_images objectAtIndex:indexPath.row]];
-        
     }
 }
 
