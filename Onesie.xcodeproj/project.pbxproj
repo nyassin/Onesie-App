@@ -33,6 +33,7 @@
 		75031707192BDF490061675E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031706192BDF490061675E /* MobileCoreServices.framework */; };
 		75031709192BDF5A0061675E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031708192BDF5A0061675E /* libsqlite3.dylib */; };
 		7503170B192BF3880061675E /* onesie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7503170A192BF3880061675E /* onesie.jpg */; };
+		D733571A192CF3D900E3AC90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7335719192CF3D900E3AC90 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		75031706192BDF490061675E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		75031708192BDF5A0061675E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		7503170A192BF3880061675E /* onesie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = onesie.jpg; sourceTree = "<group>"; };
+		D7335719192CF3D900E3AC90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				750316FF192BDF240061675E /* libz.dylib in Frameworks */,
 				750316FB192BDF1D0061675E /* Social.framework in Frameworks */,
 				750316F9192BDF190061675E /* AudioToolbox.framework in Frameworks */,
+				D733571A192CF3D900E3AC90 /* Parse.framework in Frameworks */,
 				750316C3192BDEE60061675E /* UIKit.framework in Frameworks */,
 				750316F7192BDF040061675E /* Parse.framework in Frameworks */,
 				750316BF192BDEE60061675E /* Foundation.framework in Frameworks */,
@@ -137,6 +140,7 @@
 		750316BD192BDEE60061675E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7335719192CF3D900E3AC90 /* Parse.framework */,
 				75031708192BDF5A0061675E /* libsqlite3.dylib */,
 				75031706192BDF490061675E /* MobileCoreServices.framework */,
 				75031704192BDF3D0061675E /* SystemConfiguration.framework */,
@@ -433,6 +437,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nyassin/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
@@ -451,6 +456,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nyassin/Downloads,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
@@ -519,6 +525,7 @@
 				750316F2192BDEE60061675E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		750316F3192BDEE60061675E /* Build configuration list for PBXNativeTarget "OnesieTests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +534,7 @@
 				750316F5192BDEE60061675E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
