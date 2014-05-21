@@ -10,7 +10,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface SubmitVC : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextViewDelegate>
-
 @property (strong, nonatomic) IBOutlet UITextView *titleTextView;
 @property (strong, nonatomic) IBOutlet UITextView *bodyTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;

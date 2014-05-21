@@ -8,13 +8,15 @@
 
 #import "SubmitVC.h"
 #import <Parse/Parse.h>
-
+#import "SWRevealViewController.h"
 
 #define MAX_TITLE_LENGTH 33
 #define MAX_BODY_LENGTH 2500
 #define VIEW_TRANSLATION 250
 
 @interface SubmitVC ()
+@property (strong, nonatomic) UIBarButtonItem *menuBtn;
+
 @property (strong, nonatomic) UIImagePickerController *imgPicker;
 @property (strong, nonatomic) UIImage *pickedImg;
 @property (strong, nonatomic) UILabel *charCount;
@@ -35,6 +37,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    
+    self.navigationItem.leftBarButtonItem = _menuBtn;
+    //setting up drawer menu
+    _menuBtn.target = self.revealViewController;
+    _menuBtn.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     
     _titleTextView.delegate = self;
     _bodyTextView.delegate = self;

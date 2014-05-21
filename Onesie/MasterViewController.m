@@ -9,8 +9,11 @@
 #import "MasterViewController.h"
 #import <Parse/Parse.h>
 #import "DetailViewController.h"
+#import "SWRevealViewController.h"
+
 
 @interface MasterViewController ()
+@property (strong, nonatomic) NSMutableArray *images;
 @end
 
 @implementation MasterViewController
@@ -25,6 +28,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //setting up drawer menu
+    _menuBtn.target = self.revealViewController;
+    _menuBtn.action = @selector(revealToggle:);
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     PFUser *currentUser = [PFUser currentUser];
     if (currentUser) {
         // do stuff with the user
@@ -32,8 +40,8 @@
     } else {
         // show the signup or login screen
         [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-
     }
+    _images = [[NSMutableArray alloc] init];
     
 }
 
@@ -69,13 +77,12 @@
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     query.limit = 10;
     [query orderByDescending:@"createdAt"];
-    NSLog(@"query : %@", query);
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
     return query;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    NSLog(@"image url: %@", object[@"createdAt"]);
     
     static NSString *simpleTableIdentifier = @"submission";
     
@@ -95,12 +102,21 @@
     date.text = [object objectForKey:@"date"];
     
     UIImageView *cellBackgroundImage = (UIImageView *)[cell viewWithTag:100];
-//    cellBackgroundImage.frame = cell.frame;
+    cellBackgroundImage.clipsToBounds = YES;
+    if(indexPath.row != 0) {
+        //modify the size of image, blackscreen, and date
+//        cellBackgroundImage.frame = 130;
+        cellBackgroundImage.clipsToBounds = YES;
+        [date setFrame: CGRectMake(0, 0, 100, 50)];
+        
+    }
+    NSLog(@"height %f", cell.frame.size.height );
+
     //essentail code to make sure the image is displayed correctly
     cellBackgroundImage.contentMode = UIViewContentModeScaleAspectFill;
-    cellBackgroundImage.clipsToBounds = YES;
     [object[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         cellBackgroundImage.image = [UIImage imageWithData:data];
+        [_images addObject:cellBackgroundImage.image];
     }];
 //    cellBackgroundImage.image = [UIImage imageWithData:object[@"image"]]//[UIImage imageNamed:@"onesie.jpg"];
     
@@ -121,7 +137,8 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PFObject *submission = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:submission];
-//        [[segue destinationViewController] setPassedImg:<#(UIImage *)#>]
+        [[segue destinationViewController] setPassedImg:[_images objectAtIndex:indexPath.row]];
+        
     }
 }
 

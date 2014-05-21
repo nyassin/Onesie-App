@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 
 @interface MasterViewController : PFQueryTableViewController
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuBtn;
 - (IBAction)logout:(id)sender;
 
 @end
