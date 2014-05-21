@@ -15,3 +15,13 @@
 - (IBAction)logout:(id)sender;
 
 @end
+
+
+
+//TODO
+/*
+ * 1-progressHUD
+ * 2-store up to 5.
+ * 3-make profile page
+ *
+ */

@@ -4,3 +4,4 @@ inhibit_all_warnings!
 
 
 pod "Facebook-iOS-SDK"
+pod "MBProgressHUD"

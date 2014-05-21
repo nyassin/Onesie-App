@@ -31,6 +31,11 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
+    UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];
+    background.image = [UIImage imageNamed:@"background_cloth.png"];
+    [self.view addSubview:background];
+    [self.view sendSubviewToBack:background];
+    
     
     if (self.detailItem) {
         _fullScreen = NO;
