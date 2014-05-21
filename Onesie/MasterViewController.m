@@ -26,8 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
@@ -84,17 +82,26 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     
-    static NSString *simpleTableIdentifier = @"submission";
+    static NSString *simpleTableIdentifier = @"first_submission";
+    static NSString *simpleTableIdentifier2 = @"second_submission";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    UITableViewCell *cell;
+    if(indexPath.row == 0)
+        cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    else
+        cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier2];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        if(indexPath.row == 0)
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        else
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier2];
     }
 //    UIImageView *cellBackgroundImage = (UIImageView *)[cell viewWithTag:9];
 //    //essentail code to make sure the image is displayed correctly
 //    cellBackgroundImage.contentMode = UIViewContentModeScaleAspectFill;
 //    cellBackgroundImage.clipsToBounds = YES;
-    
+    NSLog(@"height %f", cell.frame.size.height );
+
     UILabel *title = (UILabel *)[cell viewWithTag:200];
     title.text = [object objectForKey:@"title"];
     
@@ -103,14 +110,7 @@
     
     UIImageView *cellBackgroundImage = (UIImageView *)[cell viewWithTag:100];
     cellBackgroundImage.clipsToBounds = YES;
-    if(indexPath.row != 0) {
-        //modify the size of image, blackscreen, and date
-//        cellBackgroundImage.frame = 130;
-        cellBackgroundImage.clipsToBounds = YES;
-        [date setFrame: CGRectMake(0, 0, 100, 50)];
-        
-    }
-    NSLog(@"height %f", cell.frame.size.height );
+
 
     //essentail code to make sure the image is displayed correctly
     cellBackgroundImage.contentMode = UIViewContentModeScaleAspectFill;

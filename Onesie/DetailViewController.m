@@ -35,7 +35,7 @@
     if (self.detailItem) {
         _fullScreen = NO;
         _originalRect = _imageView.frame;
-        
+        self.title = self.detailItem[@"date"];
         self.detailDescriptionLabel.text = [_detailItem objectForKey:@"title"];
         _titleLbl.text = [_detailItem objectForKey:@"title"];
         _textView.text = [_detailItem objectForKey:@"body"];
