@@ -33,6 +33,9 @@
     if (self.detailItem) {
         
         self.detailDescriptionLabel.text = [_detailItem objectForKey:@"title"];
+        _titleLbl.text = [_detailItem objectForKey:@"title"];
+        _textView.text = [_detailItem objectForKey:@"body"];
+        
     }
 }
 

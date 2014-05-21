@@ -8,7 +8,6 @@
 
 #import "MasterViewController.h"
 #import <Parse/Parse.h>
-
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
@@ -26,7 +25,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        // do stuff with the user
+        NSLog(@"user logged in");
+    } else {
+        // show the signup or login screen
+        [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+
     }
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,4 +109,9 @@
     }
 }
 
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+
+}
 @end

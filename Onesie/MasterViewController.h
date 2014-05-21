@@ -10,5 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface MasterViewController : PFQueryTableViewController
+- (IBAction)logout:(id)sender;
 
 @end
