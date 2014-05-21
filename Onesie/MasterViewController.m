@@ -87,11 +87,11 @@
     
 //    cell.imageView.image = [UIImage imageNamed:@"onesie.jpg"];
 
-    return cell;   
+    return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{  
     
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
