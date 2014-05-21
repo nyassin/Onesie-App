@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : PFQueryTableViewController
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) PFObject *detailItem;
+
+@property (weak, nonatomic) PFObject *submission;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

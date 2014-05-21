@@ -22,6 +22,17 @@
 		750316E3192BDEE60061675E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316C2192BDEE60061675E /* UIKit.framework */; };
 		750316EB192BDEE60061675E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 750316E9192BDEE60061675E /* InfoPlist.strings */; };
 		750316ED192BDEE60061675E /* OnesieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 750316EC192BDEE60061675E /* OnesieTests.m */; };
+		750316F7192BDF040061675E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316F6192BDF040061675E /* Parse.framework */; };
+		750316F9192BDF190061675E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316F8192BDF190061675E /* AudioToolbox.framework */; };
+		750316FB192BDF1D0061675E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316FA192BDF1D0061675E /* Social.framework */; };
+		750316FD192BDF200061675E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316FC192BDF200061675E /* CFNetwork.framework */; };
+		750316FF192BDF240061675E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 750316FE192BDF240061675E /* libz.dylib */; };
+		75031701192BDF310061675E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031700192BDF310061675E /* CoreLocation.framework */; };
+		75031703192BDF370061675E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031702192BDF370061675E /* Accounts.framework */; };
+		75031705192BDF3D0061675E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031704192BDF3D0061675E /* SystemConfiguration.framework */; };
+		75031707192BDF490061675E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031706192BDF490061675E /* MobileCoreServices.framework */; };
+		75031709192BDF5A0061675E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031708192BDF5A0061675E /* libsqlite3.dylib */; };
+		7503170B192BF3880061675E /* onesie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7503170A192BF3880061675E /* onesie.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +67,17 @@
 		750316E8192BDEE60061675E /* OnesieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnesieTests-Info.plist"; sourceTree = "<group>"; };
 		750316EA192BDEE60061675E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		750316EC192BDEE60061675E /* OnesieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnesieTests.m; sourceTree = "<group>"; };
+		750316F6192BDF040061675E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../Downloads/Parse.framework; sourceTree = "<group>"; };
+		750316F8192BDF190061675E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		750316FA192BDF1D0061675E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		750316FC192BDF200061675E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		750316FE192BDF240061675E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		75031700192BDF310061675E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		75031702192BDF370061675E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		75031704192BDF3D0061675E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		75031706192BDF490061675E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		75031708192BDF5A0061675E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7503170A192BF3880061675E /* onesie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = onesie.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +85,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75031709192BDF5A0061675E /* libsqlite3.dylib in Frameworks */,
 				750316C1192BDEE60061675E /* CoreGraphics.framework in Frameworks */,
+				75031707192BDF490061675E /* MobileCoreServices.framework in Frameworks */,
+				750316FD192BDF200061675E /* CFNetwork.framework in Frameworks */,
+				75031705192BDF3D0061675E /* SystemConfiguration.framework in Frameworks */,
+				75031703192BDF370061675E /* Accounts.framework in Frameworks */,
+				75031701192BDF310061675E /* CoreLocation.framework in Frameworks */,
+				750316FF192BDF240061675E /* libz.dylib in Frameworks */,
+				750316FB192BDF1D0061675E /* Social.framework in Frameworks */,
+				750316F9192BDF190061675E /* AudioToolbox.framework in Frameworks */,
 				750316C3192BDEE60061675E /* UIKit.framework in Frameworks */,
+				750316F7192BDF040061675E /* Parse.framework in Frameworks */,
 				750316BF192BDEE60061675E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +117,7 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				7503170A192BF3880061675E /* onesie.jpg */,
 				750316C4192BDEE60061675E /* Onesie */,
 				750316E6192BDEE60061675E /* OnesieTests */,
 				750316BD192BDEE60061675E /* Frameworks */,
@@ -104,6 +137,16 @@
 		750316BD192BDEE60061675E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75031708192BDF5A0061675E /* libsqlite3.dylib */,
+				75031706192BDF490061675E /* MobileCoreServices.framework */,
+				75031704192BDF3D0061675E /* SystemConfiguration.framework */,
+				75031702192BDF370061675E /* Accounts.framework */,
+				75031700192BDF310061675E /* CoreLocation.framework */,
+				750316FE192BDF240061675E /* libz.dylib */,
+				750316FC192BDF200061675E /* CFNetwork.framework */,
+				750316FA192BDF1D0061675E /* Social.framework */,
+				750316F8192BDF190061675E /* AudioToolbox.framework */,
+				750316F6192BDF040061675E /* Parse.framework */,
 				750316BE192BDEE60061675E /* Foundation.framework */,
 				750316C0192BDEE60061675E /* CoreGraphics.framework */,
 				750316C2192BDEE60061675E /* UIKit.framework */,
@@ -204,6 +247,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Nuseir Yassin";
 				TargetAttributes = {
+					750316BA192BDEE60061675E = {
+						DevelopmentTeam = 9UAPSKMLP4;
+					};
 					750316DE192BDEE60061675E = {
 						TestTargetID = 750316BA192BDEE60061675E;
 					};
@@ -233,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7503170B192BF3880061675E /* onesie.jpg in Resources */,
 				750316DA192BDEE60061675E /* Images.xcassets in Resources */,
 				750316C9192BDEE60061675E /* InfoPlist.strings in Resources */,
 				750316D2192BDEE60061675E /* Main.storyboard in Resources */,
@@ -382,6 +429,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nyassin/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
@@ -395,6 +447,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/nyassin/Downloads,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";

@@ -16,10 +16,10 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setSubmission:(PFObject *)newSubmission
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_detailItem != newSubmission) {
+        _detailItem = newSubmission;
         
         // Update the view.
         [self configureView];
@@ -31,7 +31,8 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        
+        self.detailDescriptionLabel.text = [_detailItem objectForKey:@"title"];
     }
 }
 
