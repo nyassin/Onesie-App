@@ -7,7 +7,13 @@
 //
 
 #import "SubmitVC.h"
+#import <Parse/Parse.h>
+
+
 #define MAX_TITLE_LENGTH 33
+#define MAX_BODY_LENGTH 2500
+#define VIEW_TRANSLATION 250
+
 @interface SubmitVC ()
 @property (strong, nonatomic) UIImagePickerController *imgPicker;
 @property (strong, nonatomic) UIImage *pickedImg;
@@ -31,6 +37,9 @@
     // Do any additional setup after loading the view.
     
     _titleTextView.delegate = self;
+    _bodyTextView.delegate = self;
+    
+    
     UITapGestureRecognizer *imgDoubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(loadImagePicker)];
     imgDoubleTap.numberOfTapsRequired = 2;
     [_imageView addGestureRecognizer:imgDoubleTap];
@@ -108,25 +117,34 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)postBtnPressed:(id)sender {
+    //check to see there's an image and text/title
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+//    [formatter setDateFormat:@"dd MMM"];
+    
+    NSString *date = [formatter stringFromDate:[NSDate date]];
+    NSLog(@"date: %@", date);
+    PFObject *submission = [PFObject objectWithClassName:@"Submissions"];
+    submission[@"body"] = _bodyTextView.text;
+    submission[@"title"] = _titleTextView.text;
+    submission[@"date"] = date;
+    NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 1);
+    NSString *imageName = [NSString stringWithFormat:@"%@_%@",@"hello",@"bye"];
+    PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
+    submission[@"image"] = imageFile;
+    
+    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded)
+            NSLog(@"save successful!");
+        else
+            NSLog(@"error: %@", [error localizedDescription]);
+    }];
     
 }
 
 #pragma mark UITEXTVIEW delegate functions
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-//    if([text length] == 0)
-//    {
-//        if([textView.text length] != 0)
-//        {
-//            return YES;
-//        }
-//    }
-//    else if([[textView text] length] > 139)
-//    {
-//        return NO;
-//    }
-//    return YES;
-    
     if(textView.tag == 1) {
         if([[textView text] length] > MAX_TITLE_LENGTH -1)
             return NO;
@@ -145,10 +163,21 @@
             _charCount.textColor = [UIColor redColor];
         else
             _charCount.textColor = [UIColor blackColor];
+        
+        NSUInteger maxNumberOfLines = 1;
+        NSUInteger numLines = textView.contentSize.height/textView.font.lineHeight;
+        if (numLines > maxNumberOfLines)
+        {
+            textView.text = [textView.text substringToIndex:textView.text.length - 1];
+        }
     }
     //for body text view
     else if(textView.tag == 2) {
-        
+        _charCount.text = [NSString stringWithFormat:@"%d characters left", (MAX_BODY_LENGTH -len)];
+        if(MAX_BODY_LENGTH - len < 25)
+            _charCount.textColor = [UIColor redColor];
+        else
+            _charCount.textColor = [UIColor blackColor];
     }
 
 }
@@ -164,19 +193,31 @@
     UIBarButtonItem *countBtn = [[UIBarButtonItem alloc] initWithCustomView:_charCount];
     UIBarButtonItem *dismissBtn = [[UIBarButtonItem alloc]initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(resignKeyboard)];
     UIBarButtonItem *characterLabel;
+    int len = textView.text.length;
+
     if(textView.tag == 1) {
         if([textView.text isEqualToString: @"Enter Title"]) {
             textView.text = @"";
         }
         
         tmpChar.text = @"characters left";
-        int len = textView.text.length;
         _charCount.text = [NSString stringWithFormat:@"%d characters left", MAX_TITLE_LENGTH - len];
         characterLabel = [[UIBarButtonItem alloc] initWithCustomView:tmpChar];
         dismissBtn.tag = 10;
     }
     else if(textView.tag == 2) {
+        if([textView.text isEqualToString: @"Enter Description"]) {
+            textView.text = @"";
+        }
+        //move view up
+        [UIView animateWithDuration:0.2 animations:^{
+            CGRect f = self.view.frame;
+            f.origin.y = -VIEW_TRANSLATION;
+            self.view.frame = f;
+        }];
         tmpChar.text = @"words left";
+        _charCount.text = [NSString stringWithFormat:@"%d characters left", MAX_BODY_LENGTH - len];
+
         characterLabel = [[UIBarButtonItem alloc] initWithCustomView:tmpChar];
         dismissBtn.tag = 11;
 
@@ -192,5 +233,16 @@
 -(void) resignKeyboard {
     [_titleTextView resignFirstResponder];
     [_bodyTextView resignFirstResponder];
+    if(self.view.frame.origin.y != 0) {
+        NSLog(@"not equal!");
+        [UIView animateWithDuration:0.1 animations:^{
+            CGRect f = self.view.frame;
+            f.origin.y = 0;
+            self.view.frame = f;
+        }];
+    }
 }
+
+
+
 @end

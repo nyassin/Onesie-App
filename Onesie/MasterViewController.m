@@ -67,12 +67,16 @@
 - (PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
+    query.limit = 10;
+    [query orderByDescending:@"createdAt"];
+    NSLog(@"query : %@", query);
     return query;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
+    NSLog(@"image url: %@", object[@"createdAt"]);
+    
     static NSString *simpleTableIdentifier = @"submission";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -87,18 +91,29 @@
     UILabel *title = (UILabel *)[cell viewWithTag:200];
     title.text = [object objectForKey:@"title"];
     
+    UILabel *date = (UILabel *) [cell viewWithTag:400];
+    date.text = [object objectForKey:@"date"];
+    
     UIImageView *cellBackgroundImage = (UIImageView *)[cell viewWithTag:100];
+//    cellBackgroundImage.frame = cell.frame;
     //essentail code to make sure the image is displayed correctly
     cellBackgroundImage.contentMode = UIViewContentModeScaleAspectFill;
     cellBackgroundImage.clipsToBounds = YES;
-    
-    cellBackgroundImage.image = [UIImage imageNamed:@"onesie.jpg"];
+    [object[@"image"] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        cellBackgroundImage.image = [UIImage imageWithData:data];
+    }];
+//    cellBackgroundImage.image = [UIImage imageWithData:object[@"image"]]//[UIImage imageNamed:@"onesie.jpg"];
     
 //    cell.imageView.image = [UIImage imageNamed:@"onesie.jpg"];
 
     return cell;
 }
-
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == 0) {
+        return 250;
+    }
+    return 130;
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {  
     
@@ -106,6 +121,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PFObject *submission = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:submission];
+//        [[segue destinationViewController] setPassedImg:<#(UIImage *)#>]
     }
 }
 

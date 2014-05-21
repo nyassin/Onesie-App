@@ -273,7 +273,7 @@
 				ORGANIZATIONNAME = "Nuseir Yassin";
 				TargetAttributes = {
 					750316BA192BDEE60061675E = {
-						DevelopmentTeam = 9UAPSKMLP4;
+						DevelopmentTeam = X8MSSVKD85;
 					};
 					750316DE192BDEE60061675E = {
 						TestTargetID = 750316BA192BDEE60061675E;
@@ -491,7 +491,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nyassin/Downloads,
@@ -501,6 +502,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -511,7 +513,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/nyassin/Downloads,
@@ -521,6 +524,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
