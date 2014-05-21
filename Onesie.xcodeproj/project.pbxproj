@@ -40,6 +40,8 @@
 		D7335722192D153900E3AC90 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D7335721192D153900E3AC90 /* placeholder.png */; };
 		D744BB56192D54AB0037C9F3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB55192D54AB0037C9F3 /* SWRevealViewController.m */; };
 		D744BB59192D56BB0037C9F3 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB58192D56BB0037C9F3 /* MenuController.m */; };
+		D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5A192D6CFF0037C9F3 /* background_cloth.png */; };
+		D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,9 @@
 		D744BB55192D54AB0037C9F3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D744BB57192D56BB0037C9F3 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		D744BB58192D56BB0037C9F3 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		D744BB5A192D6CFF0037C9F3 /* background_cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_cloth.png; sourceTree = "<group>"; };
+		D744BB5C192D6F4E0037C9F3 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
+		D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,7 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				D744BB5A192D6CFF0037C9F3 /* background_cloth.png */,
 				7503170A192BF3880061675E /* onesie.jpg */,
 				D7335721192D153900E3AC90 /* placeholder.png */,
 				750316C4192BDEE60061675E /* Onesie */,
@@ -198,6 +204,8 @@
 				750316D4192BDEE60061675E /* MasterViewController.m */,
 				750316D6192BDEE60061675E /* DetailViewController.h */,
 				750316D7192BDEE60061675E /* DetailViewController.m */,
+				D744BB5C192D6F4E0037C9F3 /* ProfileVC.h */,
+				D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */,
 				750316D9192BDEE60061675E /* Images.xcassets */,
 				750316C5192BDEE60061675E /* Supporting Files */,
 			);
@@ -314,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */,
 				7503170B192BF3880061675E /* onesie.jpg in Resources */,
 				750316DA192BDEE60061675E /* Images.xcassets in Resources */,
 				750316C9192BDEE60061675E /* InfoPlist.strings in Resources */,
@@ -374,6 +383,7 @@
 				D7335720192D114800E3AC90 /* SubmitVC.m in Sources */,
 				750316CF192BDEE60061675E /* AppDelegate.m in Sources */,
 				750316D5192BDEE60061675E /* MasterViewController.m in Sources */,
+				D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */,
 				D744BB59192D56BB0037C9F3 /* MenuController.m in Sources */,
 				D733571D192CFDAB00E3AC90 /* SignUpVC.m in Sources */,
 				750316CB192BDEE60061675E /* main.m in Sources */,

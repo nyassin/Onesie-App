@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad
 {
+    
+    NSLog(@"USER: %@", [[PFUser currentUser] objectForKey:@"username"]);
     [super viewDidLoad];
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;

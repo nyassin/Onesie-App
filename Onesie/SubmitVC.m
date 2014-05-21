@@ -16,6 +16,7 @@
 
 @interface SubmitVC ()
 @property (strong, nonatomic) UIBarButtonItem *menuBtn;
+@property (strong, nonatomic) UIBarButtonItem *postBtn;
 
 @property (strong, nonatomic) UIImagePickerController *imgPicker;
 @property (strong, nonatomic) UIImage *pickedImg;
@@ -38,8 +39,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    
+    _postBtn = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(postBtnPressed:)];
     self.navigationItem.leftBarButtonItem = _menuBtn;
+    self.navigationItem.rightBarButtonItem = _postBtn;
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
@@ -123,15 +125,28 @@
 }
 */
 
--(IBAction)cancelBtnPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
--(IBAction)postBtnPressed:(id)sender {
+//-(IBAction)cancelBtnPressed:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+-(void)postBtnPressed:(id)sender {
     //check to see there's an image and text/title
-    
+    NSLog(@"post pressed");
     //checking to see if they are allowed to post
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-//    [query whereKey:<#(NSString *)#> containedIn:(NSArray *)]
+    [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -148,12 +163,12 @@
     PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
     submission[@"image"] = imageFile;
     
-    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if(succeeded)
-            NSLog(@"save successful!");
-        else
-            NSLog(@"error: %@", [error localizedDescription]);
-    }];
+//    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if(succeeded)
+//            NSLog(@"save successful!");
+//        else
+//            NSLog(@"error: %@", [error localizedDescription]);
+//    }];
     
 }
 
