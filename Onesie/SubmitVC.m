@@ -44,8 +44,8 @@
     _postBtn = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(postBtnPressed:)];
     
     // hide button to start while checking permissions
-    _postBtn.style = UIBarButtonItemStylePlain;
-    _postBtn.title = nil;
+//    _postBtn.style = UIBarButtonItemStylePlain;
+//    _postBtn.title = nil;
     _postBtn.enabled = NO;
     
     //add button to navigation item
@@ -132,16 +132,17 @@
 -(void) checkPermissionToPost {
     //checking to see if they are allowed to post
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-    [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]; 
+
+    NSLog(@"query username : %@", username);
+    [query whereKey:@"userID" equalTo:username];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
             // Do something with the found objects
-            if(objects.count != 0) {
+            if(objects.count > 0) {
                 _hasBeenSelected = YES;
-                _postBtn.style = UIBarButtonItemStyleBordered;
                 _postBtn.enabled = YES;
-                _postBtn.title = @"Submit";
             }
             else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"We're sorry. It seems like your lucky day hasn't come yet. \n Be patient, and one day, you will have the chance to share an image and story :)." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

@@ -142,7 +142,10 @@
                                             newUser[@"first_name"] = FBUser.first_name;
                                             newUser[@"last_name"] = FBUser.last_name;
                                             newUser[@"name"] = FBUser.name;
-                                            newUser[@"deviceToken"] = token;
+//                                            newUser[@"deviceToken"] = token;
+                                            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                            [defaults setObject:FBUser.objectID forKey:@"username"];
+                                            [defaults synchronize];
                                             
                                             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                                 if (!error) {
