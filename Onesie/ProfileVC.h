@@ -10,4 +10,10 @@
 
 @interface ProfileVC : UIViewController
 
+
+@property (strong, nonatomic) IBOutlet UISwitch *onOffSwitch;
+
+- (IBAction) onOffSwitchAction: (id) sender;
+
+
 @end

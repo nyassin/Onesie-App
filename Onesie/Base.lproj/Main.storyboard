@@ -414,6 +414,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDu-5c-oZ4">
                                 <rect key="frame" x="235" y="184" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onOffSwitchAction:" destination="PaQ-b5-e0t" eventType="valueChanged" id="d8B-x4-ZL3"/>
+                                </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfm-Wc-q2W">
                                 <rect key="frame" x="1" y="371" width="100" height="100"/>
@@ -430,6 +433,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="onOffSwitch" destination="jDu-5c-oZ4" id="w1v-5n-HNU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0Z-1t-Vr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

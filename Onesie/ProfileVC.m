@@ -8,7 +8,7 @@
 
 #import "ProfileVC.h"
 #import "SWRevealViewController.h"
-
+#import <Parse/Parse.h>
 @interface ProfileVC ()
 @property (strong, nonatomic) UIBarButtonItem *menuBtn;
 
@@ -32,13 +32,45 @@
     
     _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.leftBarButtonItem = _menuBtn;
+    
+    //set up state of notification based on the database 
+    NSArray *subscribedChannels = [PFInstallation currentInstallation].channels;
+    if( [subscribedChannels indexOfObject:@"user"] != NSNotFound) {
+        NSLog(@"SUBSCRIBED");
+        [_onOffSwitch setOn:YES animated:YES];
+    } else {
+        NSLog(@"Not subscribed");
+        [_onOffSwitch setOn:NO animated:YES];
+    }
 
+    
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
 }
+
+-(IBAction)onOffSwitchAction:(id)sender {
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    
+    
+    if(_onOffSwitch.on) {
+        // lights on
+        NSLog(@"%@", [currentInstallation channels]);
+        [currentInstallation addUniqueObject:@"user" forKey:@"channels"];
+    }
+    
+    else {
+        // lights off
+          NSLog(@"IT'S OFF");
+        [currentInstallation removeObject:@"user" forKey:@"channels"];
+    }
+    [currentInstallation saveInBackground];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
