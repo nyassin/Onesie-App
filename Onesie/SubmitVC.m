@@ -9,6 +9,7 @@
 #import "SubmitVC.h"
 #import <Parse/Parse.h>
 #import "SWRevealViewController.h"
+#import "MBProgressHUD.h"
 
 #define MAX_TITLE_LENGTH 33
 #define MAX_BODY_LENGTH 2500
@@ -17,7 +18,7 @@
 @interface SubmitVC ()
 @property (strong, nonatomic) UIBarButtonItem *menuBtn;
 @property (strong, nonatomic) UIBarButtonItem *postBtn;
-
+@property BOOL hasBeenSelected;
 @property (strong, nonatomic) UIImagePickerController *imgPicker;
 @property (strong, nonatomic) UIImage *pickedImg;
 @property (strong, nonatomic) UILabel *charCount;
@@ -37,17 +38,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _hasBeenSelected = NO;
     // Do any additional setup after loading the view.
     _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
     _postBtn = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(postBtnPressed:)];
+    
+    // hide button to start while checking permissions
+    _postBtn.style = UIBarButtonItemStylePlain;
+    _postBtn.title = nil;
+    _postBtn.enabled = NO;
+    
+    //add button to navigation item
     self.navigationItem.leftBarButtonItem = _menuBtn;
     self.navigationItem.rightBarButtonItem = _postBtn;
+    
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    
+    //checking permission to post
+    [self checkPermissionToPost];
     _titleTextView.delegate = self;
     _bodyTextView.delegate = self;
     
@@ -114,39 +125,37 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-//-(IBAction)cancelBtnPressed:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
--(void)postBtnPressed:(id)sender {
-    //check to see there's an image and text/title
-    NSLog(@"post pressed");
+-(void) checkPermissionToPost {
     //checking to see if they are allowed to post
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
     [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            NSLog(@"permision %d.", objects.count);
             // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
+            if(objects.count != 0) {
+                _hasBeenSelected = YES;
+                _postBtn.style = UIBarButtonItemStyleBordered;
+                _postBtn.enabled = YES;
+                _postBtn.title = @"Submit";
+            }
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"We're sorry. It seems like your lucky day hasn't come yet. \n Be patient, and one day, you will have the chance to share an image and story :)." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
             }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+-(void)postBtnPressed:(id)sender {
+    //check to see there's an image and text/title
+    NSLog(@"post pressed");
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Checking Permissions";
+
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -158,17 +167,22 @@
     submission[@"body"] = _bodyTextView.text;
     submission[@"title"] = _titleTextView.text;
     submission[@"date"] = date;
-    NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 1);
+    NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 4);
     NSString *imageName = [NSString stringWithFormat:@"%@_%@",@"hello",@"bye"];
     PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
     submission[@"image"] = imageFile;
-    
-//    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if(succeeded)
-//            NSLog(@"save successful!");
-//        else
-//            NSLog(@"error: %@", [error localizedDescription]);
-//    }];
+    hud.labelText =@"Submitting";
+    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) {
+            NSLog(@"save successful!");
+            [hud removeFromSuperview];
+//            [self.navigationController.view addSubview:hud];
+//            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+//            [hud hide:YES afterDelay:1];
+        }
+        else
+            NSLog(@"error: %@", [error localizedDescription]);
+    }];
     
 }
 
@@ -226,7 +240,7 @@
     int len = textView.text.length;
 
     if(textView.tag == 1) {
-        if([textView.text isEqualToString: @"Enter Title"]) {
+        if([textView.text isEqualToString: @"Title..."]) {
             textView.text = @"";
         }
         
@@ -236,7 +250,7 @@
         dismissBtn.tag = 10;
     }
     else if(textView.tag == 2) {
-        if([textView.text isEqualToString: @"Enter Description"]) {
+        if([textView.text isEqualToString: @"Why is this picture worthy of sharing?"]) {
             textView.text = @"";
         }
         //move view up
@@ -273,6 +287,22 @@
     }
 }
 
+
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+//-(IBAction)cancelBtnPressed:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 
 @end

@@ -45,6 +45,8 @@
 		D744BB59192D56BB0037C9F3 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB58192D56BB0037C9F3 /* MenuController.m */; };
 		D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5A192D6CFF0037C9F3 /* background_cloth.png */; };
 		D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */; };
+		D744BB61192E35460037C9F3 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */; };
+		D744BB62192E35460037C9F3 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		D744BB5A192D6CFF0037C9F3 /* background_cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_cloth.png; sourceTree = "<group>"; };
 		D744BB5C192D6F4E0037C9F3 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
 		D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
+		D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
+		D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */,
+				D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */,
 				75FD696A192D7912006429D3 /* FirstScreen.jpg */,
 				75FD696B192D7912006429D3 /* SecondScreen.jpg */,
 				75FD696C192D7912006429D3 /* ThirdScreen.jpg */,
@@ -333,8 +339,10 @@
 			files = (
 				D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */,
 				7503170B192BF3880061675E /* onesie.jpg in Resources */,
+				D744BB62192E35460037C9F3 /* 37x-Checkmark@2x.png in Resources */,
 				750316DA192BDEE60061675E /* Images.xcassets in Resources */,
 				75FD696E192D7912006429D3 /* SecondScreen.jpg in Resources */,
+				D744BB61192E35460037C9F3 /* 37x-Checkmark.png in Resources */,
 				750316C9192BDEE60061675E /* InfoPlist.strings in Resources */,
 				D7335722192D153900E3AC90 /* placeholder.png in Resources */,
 				750316D2192BDEE60061675E /* Main.storyboard in Resources */,
@@ -525,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,7 +544,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82854ECF-76CC-4A96-9C91-DA97A3AF0AA2";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,7 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,7 +566,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82854ECF-76CC-4A96-9C91-DA97A3AF0AA2";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
