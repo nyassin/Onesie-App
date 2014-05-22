@@ -9,6 +9,7 @@
 #import "SubmitVC.h"
 #import <Parse/Parse.h>
 #import "SWRevealViewController.h"
+#import "MBProgressHUD.h"
 
 #define MAX_TITLE_LENGTH 33
 #define MAX_BODY_LENGTH 2500
@@ -131,6 +132,8 @@
 -(void)postBtnPressed:(id)sender {
     //check to see there's an image and text/title
     NSLog(@"post pressed");
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Checking Permissions";
     //checking to see if they are allowed to post
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
     [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
@@ -158,17 +161,22 @@
     submission[@"body"] = _bodyTextView.text;
     submission[@"title"] = _titleTextView.text;
     submission[@"date"] = date;
-    NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 1);
+    NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 4);
     NSString *imageName = [NSString stringWithFormat:@"%@_%@",@"hello",@"bye"];
     PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
     submission[@"image"] = imageFile;
-    
-//    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if(succeeded)
-//            NSLog(@"save successful!");
-//        else
-//            NSLog(@"error: %@", [error localizedDescription]);
-//    }];
+    hud.labelText =@"Submitting";
+    [submission saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) {
+            NSLog(@"save successful!");
+            [hud removeFromSuperview];
+//            [self.navigationController.view addSubview:hud];
+//            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+//            [hud hide:YES afterDelay:1];
+        }
+        else
+            NSLog(@"error: %@", [error localizedDescription]);
+    }];
     
 }
 
@@ -226,7 +234,7 @@
     int len = textView.text.length;
 
     if(textView.tag == 1) {
-        if([textView.text isEqualToString: @"Enter Title"]) {
+        if([textView.text isEqualToString: @"Title..."]) {
             textView.text = @"";
         }
         
@@ -236,7 +244,7 @@
         dismissBtn.tag = 10;
     }
     else if(textView.tag == 2) {
-        if([textView.text isEqualToString: @"Enter Description"]) {
+        if([textView.text isEqualToString: @"Why is this picture worthy of sharing?"]) {
             textView.text = @"";
         }
         //move view up

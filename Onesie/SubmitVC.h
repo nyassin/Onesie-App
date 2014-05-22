@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *bodyTextView;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *placeholderLabel;
--(IBAction)cancelBtnPressed:(id)sender;
--(IBAction)postBtnPressed:(id)sender;
+//-(IBAction)cancelBtnPressed:(id)sender;
+//-(IBAction)postBtnPressed:(id)sender;
 
 @end
