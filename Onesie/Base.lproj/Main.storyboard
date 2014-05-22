@@ -198,7 +198,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Title..." translatesAutoresizingMaskIntoConstraints="NO" id="gwd-7v-Ccg">
-                                <rect key="frame" x="3" y="54" width="314" height="40"/>
+                                <rect key="frame" x="3" y="60" width="314" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.59041694972826086" green="0.59041694972826086" blue="0.59041694972826086" alpha="1" colorSpace="calibratedRGB"/>

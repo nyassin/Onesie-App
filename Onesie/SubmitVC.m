@@ -11,7 +11,7 @@
 #import "SWRevealViewController.h"
 #import "MBProgressHUD.h"
 
-#define MAX_TITLE_LENGTH 33
+#define MAX_TITLE_LENGTH 25
 #define MAX_BODY_LENGTH 2500
 #define VIEW_TRANSLATION 260
 
@@ -131,6 +131,9 @@
 
 -(void) checkPermissionToPost {
     //checking to see if they are allowed to post
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Checking Permissions";
+    [hud show:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]; 
 
@@ -148,6 +151,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"We're sorry. It seems like your lucky day hasn't come yet. \n Be patient, and one day, you will have the chance to share an image and story :)." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alert show];
             }
+            [hud hide:YES];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -213,9 +217,13 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if(textView.tag == 1) {
-        if([[textView text] length] > MAX_TITLE_LENGTH -1)
-            return NO;
+//        if([[textView text] length] > MAX_TITLE_LENGTH -1)
+//            return NO;
+        
+        return textView.text.length + (text.length - range.length) <= MAX_TITLE_LENGTH;
     }
+    else if(textView.tag == 2)
+        return textView.text.length + (text.length - range.length) <= MAX_BODY_LENGTH;
     
     return YES;
 }
