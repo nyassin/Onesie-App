@@ -42,9 +42,9 @@
         _textView.text = [_detailItem objectForKey:@"body"];
         _imageView.image = _passedImg;
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showFullScreen)];
-        tap.numberOfTapsRequired = 1;
-        [_imageView addGestureRecognizer:tap];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showFullScreen)];
+//        tap.numberOfTapsRequired = 1;
+//        [_imageView addGestureRecognizer:tap];
         
         //add long press to save image
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
@@ -79,9 +79,10 @@
         [saving show];
     }
 }
-
+/*
 -(void) showFullScreen {
     NSLog(@"FULL SCREEN: %hhd", _fullScreen);
+    NSLog(@"not doing anything in 1.0");
 //    if(_fullScreen) {
 //        [[[UIApplication sharedApplication] delegate].window addSubview:_imageView];
 //        [UIView animateWithDuration:0.5 animations:^{
@@ -106,15 +107,16 @@
 //        [self.view bringSubviewToFront:_fullScreenImageView];
 //    }
 //    [self.view bringSubviewToFront:_imageView];
-    [self performSegueWithIdentifier:@"FullScreenImageSegue" sender:self];
+//    [self performSegueWithIdentifier:@"FullScreenImageSegue" sender:self];
 }
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
-
+/*
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if (![segue isKindOfClass:[JKImageTransitionSegue class]]) {
@@ -157,7 +159,8 @@
 	((FullScreenImageVC *)fromViewController).imageView.hidden = YES;
 	
 	return imageTransition;
-}
+} */
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

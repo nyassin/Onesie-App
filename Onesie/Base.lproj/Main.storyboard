@@ -310,7 +310,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail" id="nuP-yD-BWo"/>
+                                    <segue destination="Ah7-4n-0Wa" kind="push" identifier="showDetail2" id="nuP-yD-BWo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -484,6 +484,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="6gD-cg-s0w"/>
-        <segue reference="nuP-yD-BWo"/>
+        <segue reference="jUr-3t-vfg"/>
     </inferredMetricsTieBreakers>
 </document>
