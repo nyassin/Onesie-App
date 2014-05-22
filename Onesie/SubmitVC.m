@@ -13,7 +13,7 @@
 
 #define MAX_TITLE_LENGTH 33
 #define MAX_BODY_LENGTH 2500
-#define VIEW_TRANSLATION 250
+#define VIEW_TRANSLATION 260
 
 @interface SubmitVC ()
 @property (strong, nonatomic) UIBarButtonItem *menuBtn;
