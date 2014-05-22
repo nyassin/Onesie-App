@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface ProfileVC : UIViewController
+@interface ProfileVC : UIViewController <FBLoginViewDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UISwitch *onOffSwitch;

@@ -11,7 +11,7 @@
 #import <Parse/Parse.h>
 @interface ProfileVC ()
 @property (strong, nonatomic) UIBarButtonItem *menuBtn;
-
+@property (strong, nonatomic) IBOutlet FBLoginView *fbLoginView;
 @end
 
 @implementation ProfileVC
@@ -29,7 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [_fbLoginView setDelegate:self];
+
     _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.leftBarButtonItem = _menuBtn;
     
@@ -51,6 +52,7 @@
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
     
 }
 

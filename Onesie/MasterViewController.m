@@ -34,7 +34,8 @@
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 
     PFUser *currentUser = [PFUser currentUser];
-
+    
+    [PFUser logOut];
 
     if (currentUser) {
         // do stuff with the user

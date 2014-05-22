@@ -122,6 +122,9 @@
                             user:(id<FBGraphUser>)FBUser {
     NSLog(@"user info : %@", FBUser);
     NSLog(@"id: %@", FBUser.objectID);
+    
+    NSString *token = [[PFInstallation currentInstallation] deviceToken];
+    NSLog(@"%@", token);
     [PFUser logInWithUsernameInBackground:FBUser.objectID password:FBUser.objectID
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
@@ -139,6 +142,7 @@
                                             newUser[@"first_name"] = FBUser.first_name;
                                             newUser[@"last_name"] = FBUser.last_name;
                                             newUser[@"name"] = FBUser.name;
+                                            newUser[@"deviceToken"] = token;
                                             
                                             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                                 if (!error) {
