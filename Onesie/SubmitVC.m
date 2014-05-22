@@ -57,6 +57,8 @@
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
+    
+
     //checking permission to post
     [self checkPermissionToPost];
     _titleTextView.delegate = self;
@@ -72,6 +74,8 @@
     [_imageView addGestureRecognizer:imgSingleTap];
 
     
+    
+
 }
 -(void) loadImagePicker {
     NSLog(@"double tap clicked");
@@ -179,7 +183,24 @@
 //            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
 //            [hud hide:YES afterDelay:1];
             
-            //Change Pending Submission
+            //Change Pending Submission for this user
+            PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
+            [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
+                if (!error) {
+                    // Found UserStats
+
+                    [userStats setObject:[NSNumber numberWithBool:YES] forKey:@"submitted"];
+                    
+                    // Save
+                    [userStats saveInBackground];
+                } else {
+                    // Did not find any UserStats for the current user
+                    NSLog(@"Error: %@", error);
+                }
+            }];
+            
+            
         }
         else
             NSLog(@"error: %@", [error localizedDescription]);
