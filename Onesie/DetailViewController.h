@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UIActionSheetDelegate>
 
 @property (strong, nonatomic) PFObject *detailItem;
 

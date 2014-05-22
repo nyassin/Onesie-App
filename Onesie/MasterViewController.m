@@ -141,9 +141,4 @@
     }
 }
 
-- (IBAction)logout:(id)sender {
-    [PFUser logOut];
-    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
-
-}
 @end
