@@ -44,6 +44,9 @@
     }
 
     
+    //Change label with the user name
+    
+    _userName.text = [[PFUser currentUser] objectForKey:@"name"];
     //setting up drawer menu
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);

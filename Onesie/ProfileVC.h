@@ -12,6 +12,7 @@
 
 
 @property (strong, nonatomic) IBOutlet UISwitch *onOffSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *userName;
 
 - (IBAction) onOffSwitchAction: (id) sender;
 
