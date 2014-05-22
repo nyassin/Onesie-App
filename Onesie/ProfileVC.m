@@ -28,8 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [_fbLoginView setDelegate:self];
 
     _menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
     self.navigationItem.leftBarButtonItem = _menuBtn;
@@ -56,6 +54,22 @@
     
 }
 
+-(IBAction)logoutBtnClicked:(id)sender {
+
+    NSLog(@"hello");
+    
+    if (FBSession.activeSession.isOpen)
+    {
+        [FBSession.activeSession closeAndClearTokenInformation];
+    }
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"SignUpNotAnimated" sender:self];
+}
+-(void) logoutUser: (UITapGestureRecognizer *) sender {
+    NSLog(@"trying to logout");
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+}
 -(IBAction)onOffSwitchAction:(id)sender {
 
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];

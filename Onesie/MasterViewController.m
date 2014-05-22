@@ -35,7 +35,7 @@
 
     PFUser *currentUser = [PFUser currentUser];
     
-    [PFUser logOut];
+//    [PFUser logOut];
 
     if (currentUser) {
         // do stuff with the user
