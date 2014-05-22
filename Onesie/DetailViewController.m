@@ -59,7 +59,7 @@
 }
 -(void) longPressed: (UILongPressGestureRecognizer *) sender {
     NSLog(@"long press pressed");
-    if(sender.state == UIGestureRecognizerStateEnded) {
+    if(sender.state == UIGestureRecognizerStateBegan) {
         UIActionSheet *saveAction = [[UIActionSheet alloc] initWithTitle:@"Save Image?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save to library", nil];
         [saveAction showInView:self.view];
     }
