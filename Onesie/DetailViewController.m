@@ -7,10 +7,13 @@
 //
 
 #import "DetailViewController.h"
-
+#import "JKImageTransitionSegue.h"
+#import "FullScreenImageVC.h"
 @interface DetailViewController ()
 - (void)configureView;
 @property BOOL fullScreen;
+//@property (strong, nonatomic) UIImageView *fullScreenImageView;
+
 @property CGRect originalRect;
 @end
 
@@ -30,14 +33,6 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-/*
-     UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];
-    background.image = [UIImage imageNamed:@"background_cloth.png"];
-    [self.view addSubview:background];
-    [self.view sendSubviewToBack:background];
-*/
-    
     if (self.detailItem) {
         _fullScreen = NO;
         _originalRect = _imageView.frame;
@@ -55,6 +50,11 @@
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
         longPress.minimumPressDuration = 1;
         [_imageView addGestureRecognizer:longPress];
+        
+//        _fullScreenImageView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
+//        _fullScreenImageView.image = _passedImg;
+//        [self.view bringSubviewToFront:_fullScreenImageView];
+////        [_fullScreenImageView setHidden:YES];
     }
 }
 -(void) longPressed: (UILongPressGestureRecognizer *) sender {
@@ -81,27 +81,32 @@
 }
 
 -(void) showFullScreen {
-    NSLog(@"hello");
-    if(_fullScreen) {
-        [[[UIApplication sharedApplication] delegate].window addSubview:_imageView];
-        [UIView animateWithDuration:0.5 animations:^{
-            _imageView.frame = _originalRect;
-            
-        } completion:^(BOOL finished) {
-            _fullScreen = NO;
-        }];
-    }
-    else {
-        [[[UIApplication sharedApplication] delegate].window addSubview:_imageView];
-        [UIView animateWithDuration:0.5 animations:^{
-            _imageView.frame = [[UIScreen mainScreen] bounds];
-            
-        } completion:^(BOOL finished) {
-            _fullScreen = YES;
-        }];
-    }
+    NSLog(@"FULL SCREEN: %hhd", _fullScreen);
+//    if(_fullScreen) {
+//        [[[UIApplication sharedApplication] delegate].window addSubview:_imageView];
+//        [UIView animateWithDuration:0.5 animations:^{
+//            _imageView.frame = _originalRect;
+//            
+//        } completion:^(BOOL finished) {
+//            _fullScreen = NO;
+//        }];
+//        [_fullScreenImageView setHidden:YES];
+//    }
+//    else {
+//        [[[UIApplication sharedApplication] delegate].window addSubview:_imageView];
+//        [UIView animateWithDuration:0.5 animations:^{
+//            _imageView.frame = [[UIScreen mainScreen] bounds];
+//            
+//        } completion:^(BOOL finished) {
+//            _fullScreen = YES;
+//        }];
+//        NSLog(@"not full screen");
+//        _fullScreenImageView.image = _imageView.image;
+//        [_fullScreenImageView setHidden:NO];
+//        [self.view bringSubviewToFront:_fullScreenImageView];
+//    }
 //    [self.view bringSubviewToFront:_imageView];
-   
+    [self performSegueWithIdentifier:@"FullScreenImageSegue" sender:self];
 }
 - (void)viewDidLoad
 {
@@ -110,6 +115,49 @@
     [self configureView];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if (![segue isKindOfClass:[JKImageTransitionSegue class]]) {
+		return;
+	}
+	
+	FullScreenImageVC *imageController = (FullScreenImageVC *)segue.destinationViewController;
+	
+	// provide destination with full image
+	imageController.passedImg = _passedImg;
+	
+	// configure segue
+//	UIButton *imageButton = (UIButton *)sender;
+	JKImageTransitionSegue *imageSegue = (JKImageTransitionSegue *)segue;
+//
+	imageSegue.sourceRect = _imageView.frame;
+	imageSegue.transitionImage = _imageView.image;
+//
+	_imageView.hidden = YES;
+}
+
+- (IBAction) unwindFromSegue:(UIStoryboardSegue *)segue
+{
+	
+}
+
+- (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier
+{
+	JKImageTransitionSegue *imageTransition = [[JKImageTransitionSegue alloc] initWithIdentifier:identifier source:fromViewController destination:toViewController];
+	imageTransition.unwinding = YES;
+	imageTransition.transitionImage = self.imageView.image;
+//
+	CGRect sourceRect = ((FullScreenImageVC *)fromViewController).imageView.frame;
+	sourceRect.origin.y -= ((FullScreenImageVC *)fromViewController).imageView.frame.origin.y;
+	sourceRect.origin.x -= ((FullScreenImageVC *)fromViewController).imageView.frame.origin.x;
+	imageTransition.sourceRect = sourceRect;
+//
+	imageTransition.destinationRect = self.imageView.frame;
+//
+	((FullScreenImageVC *)fromViewController).imageView.hidden = YES;
+	
+	return imageTransition;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

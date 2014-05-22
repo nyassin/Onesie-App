@@ -47,6 +47,8 @@
 		D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */; };
 		D744BB61192E35460037C9F3 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */; };
 		D744BB62192E35460037C9F3 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */; };
+		D744BB65192E49830037C9F3 /* FullScreenImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB64192E49830037C9F3 /* FullScreenImageVC.m */; };
+		D744BB68192E4ABF0037C9F3 /* JKImageTransitionSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB67192E4ABF0037C9F3 /* JKImageTransitionSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,10 @@
 		D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 		D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		D744BB63192E49830037C9F3 /* FullScreenImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenImageVC.h; sourceTree = "<group>"; };
+		D744BB64192E49830037C9F3 /* FullScreenImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenImageVC.m; sourceTree = "<group>"; };
+		D744BB66192E4ABF0037C9F3 /* JKImageTransitionSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKImageTransitionSegue.h; sourceTree = "<group>"; };
+		D744BB67192E4ABF0037C9F3 /* JKImageTransitionSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKImageTransitionSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,8 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				D744BB66192E4ABF0037C9F3 /* JKImageTransitionSegue.h */,
+				D744BB67192E4ABF0037C9F3 /* JKImageTransitionSegue.m */,
 				D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */,
 				D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */,
 				75FD696A192D7912006429D3 /* FirstScreen.jpg */,
@@ -219,6 +227,8 @@
 				750316D4192BDEE60061675E /* MasterViewController.m */,
 				750316D6192BDEE60061675E /* DetailViewController.h */,
 				750316D7192BDEE60061675E /* DetailViewController.m */,
+				D744BB63192E49830037C9F3 /* FullScreenImageVC.h */,
+				D744BB64192E49830037C9F3 /* FullScreenImageVC.m */,
 				D744BB5C192D6F4E0037C9F3 /* ProfileVC.h */,
 				D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */,
 				750316D9192BDEE60061675E /* Images.xcassets */,
@@ -404,9 +414,11 @@
 				750316CF192BDEE60061675E /* AppDelegate.m in Sources */,
 				750316D5192BDEE60061675E /* MasterViewController.m in Sources */,
 				D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */,
+				D744BB65192E49830037C9F3 /* FullScreenImageVC.m in Sources */,
 				D744BB59192D56BB0037C9F3 /* MenuController.m in Sources */,
 				D733571D192CFDAB00E3AC90 /* SignUpVC.m in Sources */,
 				750316CB192BDEE60061675E /* main.m in Sources */,
+				D744BB68192E4ABF0037C9F3 /* JKImageTransitionSegue.m in Sources */,
 				750316D8192BDEE60061675E /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

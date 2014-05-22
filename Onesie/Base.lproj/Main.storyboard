@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="VXa-jV-fY6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="VXa-jV-fY6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -371,11 +371,50 @@
                         <outlet property="imageView" destination="H2P-EJ-Dff" id="E2T-jU-uEH"/>
                         <outlet property="textView" destination="JYH-Vv-mnk" id="RD5-LI-22U"/>
                         <outlet property="titleLbl" destination="BhN-Kz-Zy9" id="tII-Bj-QsT"/>
+                        <segue destination="UFb-sV-Vfg" kind="custom" identifier="FullScreenImageSegue" customClass="JKImageTransitionSegue" id="0xf-Fa-D4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-197" y="-526"/>
+        </scene>
+        <!--Full Screen ImageVC-->
+        <scene sceneID="NsR-Pt-FxW">
+            <objects>
+                <viewController id="UFb-sV-Vfg" customClass="FullScreenImageVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f8m-Qn-UfU"/>
+                        <viewControllerLayoutGuide type="bottom" id="4wO-Ly-Mlt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SWF-Uf-Jl4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUK-Oh-s7k">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzs-y8-gkR">
+                                <rect key="frame" x="20" y="20" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeBtnPressed:" destination="UFb-sV-Vfg" eventType="touchUpInside" id="FxZ-gH-vVC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeBtn" destination="Zzs-y8-gkR" id="Qc7-0X-UdS"/>
+                        <outlet property="imageView" destination="eUK-Oh-s7k" id="0cm-y6-Iqx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="at9-bS-N3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="-448"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="h5p-UF-LRH">
