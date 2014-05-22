@@ -132,7 +132,6 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"permision %d.", objects.count);
             // Do something with the found objects
             if(objects.count != 0) {
                 _hasBeenSelected = YES;
@@ -179,6 +178,8 @@
 //            [self.navigationController.view addSubview:hud];
 //            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
 //            [hud hide:YES afterDelay:1];
+            
+            //Change Pending Submission
         }
         else
             NSLog(@"error: %@", [error localizedDescription]);
