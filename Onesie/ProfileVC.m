@@ -37,6 +37,7 @@
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning

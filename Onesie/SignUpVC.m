@@ -25,6 +25,16 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage
+                                                                       imageNamed:@"background_cloth.png"]];
+    [self.view addSubview:backgroundImage];
+    [self.view sendSubviewToBack:backgroundImage];
+    
+    [self.view bringSubviewToFront:_pageControl];
+
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,7 +43,65 @@
     //setting facebook permissions
     [_fbLoginView setReadPermissions:@[@"public_profile", @"email"]];
     [_fbLoginView setDelegate:self];
+    
+
+    UIImage *image1;
+    UIImage *image2;
+    UIImage *image3;
+    
+    if (self.view.frame.size.height > 480.0f) {
+        image1 = [UIImage imageNamed:@"FirstScreen.jpg"];
+        image2 = [UIImage imageNamed:@"SecondScreen.jpg"];
+        image3 = [UIImage imageNamed:@"ThirdScreen.jpg"];
+        
+    } else {
+        image1 = [UIImage imageNamed:@"tutorial-1"];
+        image2 = [UIImage imageNamed:@"tutorial-2"];
+        image3 = [UIImage imageNamed:@"tutorial-3"];
+        
+    }
+    
+    NSArray *pictures = [NSArray arrayWithObjects:image1, image2, image3, nil];
+    for (int i = 0; i < pictures.count; i++) {
+        CGRect frame;
+        frame.origin.x = self.scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = self.scrollView.frame.size;
+        UIImageView *subview = [[UIImageView alloc] initWithFrame:frame];
+        subview.image = [pictures objectAtIndex:i];
+        
+        [self.scrollView addSubview:subview];
+    }
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width
+                                             * pictures.count, self.scrollView.frame.size.height);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    
+    
+    [self.view addSubview:_fbLoginView];
+    [self.view bringSubviewToFront:_fbLoginView];
 }
+
+-(void)changePageControl {
+    CGRect frame;
+    frame.origin.x = self.scrollView.frame.size.width
+    * self.pageControl.currentPage;
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
+    
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    
+    NSLog(@"Did scroll!");
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2)
+                     / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

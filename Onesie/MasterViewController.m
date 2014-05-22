@@ -32,11 +32,14 @@
     _menuBtn.target = self.revealViewController;
     _menuBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    
+
     PFUser *currentUser = [PFUser currentUser];
+
+
     if (currentUser) {
         // do stuff with the user
         NSLog(@"user logged in");
+
     } else {
         // show the signup or login screen
         [self performSegueWithIdentifier:@"SignUpSegue" sender:self];

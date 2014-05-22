@@ -34,6 +34,9 @@
 		75031707192BDF490061675E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031706192BDF490061675E /* MobileCoreServices.framework */; };
 		75031709192BDF5A0061675E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031708192BDF5A0061675E /* libsqlite3.dylib */; };
 		7503170B192BF3880061675E /* onesie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7503170A192BF3880061675E /* onesie.jpg */; };
+		75FD696D192D7912006429D3 /* FirstScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696A192D7912006429D3 /* FirstScreen.jpg */; };
+		75FD696E192D7912006429D3 /* SecondScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696B192D7912006429D3 /* SecondScreen.jpg */; };
+		75FD696F192D7912006429D3 /* ThirdScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696C192D7912006429D3 /* ThirdScreen.jpg */; };
 		D733571A192CF3D900E3AC90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7335719192CF3D900E3AC90 /* Parse.framework */; };
 		D733571D192CFDAB00E3AC90 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D733571C192CFDAB00E3AC90 /* SignUpVC.m */; };
 		D7335720192D114800E3AC90 /* SubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D733571F192D114800E3AC90 /* SubmitVC.m */; };
@@ -87,6 +90,9 @@
 		75031706192BDF490061675E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		75031708192BDF5A0061675E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		7503170A192BF3880061675E /* onesie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = onesie.jpg; sourceTree = "<group>"; };
+		75FD696A192D7912006429D3 /* FirstScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FirstScreen.jpg; sourceTree = "<group>"; };
+		75FD696B192D7912006429D3 /* SecondScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SecondScreen.jpg; sourceTree = "<group>"; };
+		75FD696C192D7912006429D3 /* ThirdScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThirdScreen.jpg; sourceTree = "<group>"; };
 		7CF37704B78E4416BD2AD0DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0620F42D5154FADB0719C45 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D7335719192CF3D900E3AC90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -143,6 +149,9 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				75FD696A192D7912006429D3 /* FirstScreen.jpg */,
+				75FD696B192D7912006429D3 /* SecondScreen.jpg */,
+				75FD696C192D7912006429D3 /* ThirdScreen.jpg */,
 				D744BB5A192D6CFF0037C9F3 /* background_cloth.png */,
 				7503170A192BF3880061675E /* onesie.jpg */,
 				D7335721192D153900E3AC90 /* placeholder.png */,
@@ -325,9 +334,12 @@
 				D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */,
 				7503170B192BF3880061675E /* onesie.jpg in Resources */,
 				750316DA192BDEE60061675E /* Images.xcassets in Resources */,
+				75FD696E192D7912006429D3 /* SecondScreen.jpg in Resources */,
 				750316C9192BDEE60061675E /* InfoPlist.strings in Resources */,
 				D7335722192D153900E3AC90 /* placeholder.png in Resources */,
 				750316D2192BDEE60061675E /* Main.storyboard in Resources */,
+				75FD696F192D7912006429D3 /* ThirdScreen.jpg in Resources */,
+				75FD696D192D7912006429D3 /* FirstScreen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

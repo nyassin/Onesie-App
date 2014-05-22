@@ -71,7 +71,7 @@
         _imgPicker.allowsEditing = NO;
     }
     
-    UIActionSheet *imgAction = [[UIActionSheet alloc] initWithTitle:@"Image" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Choose from Library",@"Take Picture", nil];
+    UIActionSheet *imgAction = [[UIActionSheet alloc] initWithTitle:@"Upload Image" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Choose from Library",@"Take Picture", nil];
     imgAction.tag = 101;
     [imgAction showInView:self.view];
 }
