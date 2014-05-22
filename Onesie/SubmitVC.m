@@ -139,10 +139,12 @@
 
     NSLog(@"query username : %@", username);
     [query whereKey:@"userID" equalTo:username];
+    [query whereKey:@"Submitted" equalTo:[NSNumber numberWithBool:NO]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
             // Do something with the found objects
+            NSLog(@"count : %d", objects.count);
             if(objects.count > 0) {
                 _hasBeenSelected = YES;
                 _postBtn.enabled = YES;
@@ -184,9 +186,7 @@
         if(succeeded) {
             NSLog(@"save successful!");
             [hud removeFromSuperview];
-//            [self.navigationController.view addSubview:hud];
-//            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-//            [hud hide:YES afterDelay:1];
+
             
             //Change Pending Submission for this user
             PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
@@ -264,7 +264,7 @@
 
     UILabel *tmpChar;
     tmpChar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
-    _charCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
+    _charCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     UIBarButtonItem *countBtn = [[UIBarButtonItem alloc] initWithCustomView:_charCount];
     UIBarButtonItem *dismissBtn = [[UIBarButtonItem alloc]initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(resignKeyboard)];
     UIBarButtonItem *characterLabel;
