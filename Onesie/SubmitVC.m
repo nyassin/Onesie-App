@@ -139,7 +139,7 @@
 
     NSLog(@"query username : %@", username);
     [query whereKey:@"userID" equalTo:username];
-    [query whereKey:@"Submitted" equalTo:[NSNumber numberWithBool:NO]];
+    [query whereKey:@"submitted" equalTo:[NSNumber numberWithBool:NO]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
@@ -177,6 +177,10 @@
     submission[@"body"] = _bodyTextView.text;
     submission[@"title"] = _titleTextView.text;
     submission[@"date"] = date;
+    submission[@"author"] = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    submission[@"sent"] = [NSNumber numberWithBool:NO];
+
+    
     NSData *imageData = UIImageJPEGRepresentation(_imageView.image, 4);
     NSString *imageName = [NSString stringWithFormat:@"%@_%@",@"hello",@"bye"];
     PFFile *imageFile = [PFFile fileWithName:imageName data:imageData];
@@ -190,11 +194,11 @@
             
             //Change Pending Submission for this user
             PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-            [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+            [query whereKey:@"userID" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
                 if (!error) {
-                    // Found UserStats
 
+                    // Found UserStats
                     [userStats setObject:[NSNumber numberWithBool:YES] forKey:@"submitted"];
                     
                     // Save
