@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) IBOutlet UISwitch *onOffSwitch;
 @property (strong, nonatomic) IBOutlet UILabel *userName;
+@property (strong, nonatomic) IBOutlet UIButton *logoutBtn;
+
+-(IBAction)logoutBtnClicked:(id)sender;
 
 - (IBAction) onOffSwitchAction: (id) sender;
 

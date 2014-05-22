@@ -20,4 +20,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLbl;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) UIImage *passedImg;
+
 @end

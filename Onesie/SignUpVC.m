@@ -94,7 +94,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
-    NSLog(@"Did scroll!");
+//    NSLog(@"Did scroll!");
     // Update the page when more than 50% of the previous/next page is visible
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2)
@@ -142,7 +142,10 @@
                                             newUser[@"first_name"] = FBUser.first_name;
                                             newUser[@"last_name"] = FBUser.last_name;
                                             newUser[@"name"] = FBUser.name;
-                                            newUser[@"deviceToken"] = token;
+//                                            newUser[@"deviceToken"] = token;
+                                            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                            [defaults setObject:FBUser.objectID forKey:@"username"];
+                                            [defaults synchronize];
                                             
                                             [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                                 if (!error) {

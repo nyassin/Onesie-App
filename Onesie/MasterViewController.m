@@ -35,7 +35,7 @@
 
     PFUser *currentUser = [PFUser currentUser];
     
-    [PFUser logOut];
+//    [PFUser logOut];
 
     if (currentUser) {
         // do stuff with the user
@@ -134,7 +134,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {  
     
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"] ||
+        [[segue identifier] isEqualToString:@"showDetail2"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PFObject *submission = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:submission];

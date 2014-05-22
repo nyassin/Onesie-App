@@ -11,7 +11,7 @@
 #import "SWRevealViewController.h"
 #import "MBProgressHUD.h"
 
-#define MAX_TITLE_LENGTH 33
+#define MAX_TITLE_LENGTH 25
 #define MAX_BODY_LENGTH 2500
 #define VIEW_TRANSLATION 260
 
@@ -44,8 +44,8 @@
     _postBtn = [[UIBarButtonItem alloc] initWithTitle:@"Post" style:UIBarButtonItemStyleBordered target:self action:@selector(postBtnPressed:)];
     
     // hide button to start while checking permissions
-    _postBtn.style = UIBarButtonItemStylePlain;
-    _postBtn.title = nil;
+//    _postBtn.style = UIBarButtonItemStylePlain;
+//    _postBtn.title = nil;
     _postBtn.enabled = NO;
     
     //add button to navigation item
@@ -131,22 +131,29 @@
 
 -(void) checkPermissionToPost {
     //checking to see if they are allowed to post
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Checking Permissions";
+    [hud show:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-    [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]; 
+
+    NSLog(@"query username : %@", username);
+    [query whereKey:@"userID" equalTo:username];
+    [query whereKey:@"Submitted" equalTo:[NSNumber numberWithBool:NO]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
             // Do something with the found objects
-            if(objects.count != 0) {
+            NSLog(@"count : %d", objects.count);
+            if(objects.count > 0) {
                 _hasBeenSelected = YES;
-                _postBtn.style = UIBarButtonItemStyleBordered;
                 _postBtn.enabled = YES;
-                _postBtn.title = @"Submit";
             }
             else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"We're sorry. It seems like your lucky day hasn't come yet. \n Be patient, and one day, you will have the chance to share an image and story :)." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alert show];
             }
+            [hud hide:YES];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -179,9 +186,7 @@
         if(succeeded) {
             NSLog(@"save successful!");
             [hud removeFromSuperview];
-//            [self.navigationController.view addSubview:hud];
-//            hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
-//            [hud hide:YES afterDelay:1];
+
             
             //Change Pending Submission for this user
             PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
@@ -212,9 +217,13 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if(textView.tag == 1) {
-        if([[textView text] length] > MAX_TITLE_LENGTH -1)
-            return NO;
+//        if([[textView text] length] > MAX_TITLE_LENGTH -1)
+//            return NO;
+        
+        return textView.text.length + (text.length - range.length) <= MAX_TITLE_LENGTH;
     }
+    else if(textView.tag == 2)
+        return textView.text.length + (text.length - range.length) <= MAX_BODY_LENGTH;
     
     return YES;
 }
@@ -255,7 +264,7 @@
 
     UILabel *tmpChar;
     tmpChar = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
-    _charCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
+    _charCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     UIBarButtonItem *countBtn = [[UIBarButtonItem alloc] initWithCustomView:_charCount];
     UIBarButtonItem *dismissBtn = [[UIBarButtonItem alloc]initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(resignKeyboard)];
     UIBarButtonItem *characterLabel;
