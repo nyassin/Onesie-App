@@ -42,7 +42,7 @@
                           ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
     
     token = [token stringByAppendingString:hexToken];
-    currentInstallation.channels = @[token];
+    currentInstallation.channels = @[token, @"user"];
     [currentInstallation saveInBackground];
 }
 

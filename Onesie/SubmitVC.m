@@ -135,7 +135,8 @@
     hud.labelText = @"Checking Permissions";
     [hud show:YES];
     PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]; 
+    NSString *username = [[PFUser currentUser] objectForKey:@"username"];
+
 
     NSLog(@"query username : %@", username);
     [query whereKey:@"userID" equalTo:username];
@@ -177,7 +178,7 @@
     submission[@"body"] = _bodyTextView.text;
     submission[@"title"] = _titleTextView.text;
     submission[@"date"] = date;
-    submission[@"author"] = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    submission[@"author"] =  [[PFUser currentUser] objectForKey:@"username"];
     submission[@"sent"] = [NSNumber numberWithBool:NO];
 
     
@@ -194,7 +195,7 @@
             
             //Change Pending Submission for this user
             PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
-            [query whereKey:@"userID" equalTo:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+            [query whereKey:@"userID" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
                 if (!error) {
 

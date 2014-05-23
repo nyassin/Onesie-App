@@ -81,6 +81,7 @@
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     query.limit = 10;
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"sent" equalTo:[NSNumber numberWithBool:YES]];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     return query;
 }
