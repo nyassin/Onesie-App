@@ -191,7 +191,11 @@
         if(succeeded) {
             NSLog(@"save successful!");
             [hud removeFromSuperview];
-
+            
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:
+                                      @"Success!" message:@"Your submission has been successfully submitted for review." delegate:self
+                                                     cancelButtonTitle:nil otherButtonTitles:@"Sweet!", nil];
+            [alertView show];
             
             //Change Pending Submission for this user
             PFQuery *query = [PFQuery queryWithClassName:@"Pending"];
@@ -212,8 +216,16 @@
             
             
         }
-        else
+        else {
             NSLog(@"error: %@", [error localizedDescription]);
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:
+                                      @"Failure!" message:@"Something went wrong. Please try again or contact us at nyassin14@gmail.com" delegate:self
+                                                     cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+            [alertView show];
+        
+        }
+            
+        
     }];
     
 }

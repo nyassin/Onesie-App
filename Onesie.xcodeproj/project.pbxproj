@@ -33,17 +33,15 @@
 		75031705192BDF3D0061675E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031704192BDF3D0061675E /* SystemConfiguration.framework */; };
 		75031707192BDF490061675E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031706192BDF490061675E /* MobileCoreServices.framework */; };
 		75031709192BDF5A0061675E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75031708192BDF5A0061675E /* libsqlite3.dylib */; };
-		7503170B192BF3880061675E /* onesie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7503170A192BF3880061675E /* onesie.jpg */; };
-		75FD696D192D7912006429D3 /* FirstScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696A192D7912006429D3 /* FirstScreen.jpg */; };
-		75FD696E192D7912006429D3 /* SecondScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696B192D7912006429D3 /* SecondScreen.jpg */; };
-		75FD696F192D7912006429D3 /* ThirdScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75FD696C192D7912006429D3 /* ThirdScreen.jpg */; };
+		754401C8192FCFB7003BEEB7 /* FirstScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 754401C5192FCFB7003BEEB7 /* FirstScreen.jpg */; };
+		754401C9192FCFB7003BEEB7 /* SecondScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 754401C6192FCFB7003BEEB7 /* SecondScreen.jpg */; };
+		754401CA192FCFB7003BEEB7 /* ThirdScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 754401C7192FCFB7003BEEB7 /* ThirdScreen.jpg */; };
 		D733571A192CF3D900E3AC90 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7335719192CF3D900E3AC90 /* Parse.framework */; };
 		D733571D192CFDAB00E3AC90 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D733571C192CFDAB00E3AC90 /* SignUpVC.m */; };
 		D7335720192D114800E3AC90 /* SubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D733571F192D114800E3AC90 /* SubmitVC.m */; };
 		D7335722192D153900E3AC90 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D7335721192D153900E3AC90 /* placeholder.png */; };
 		D744BB56192D54AB0037C9F3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB55192D54AB0037C9F3 /* SWRevealViewController.m */; };
 		D744BB59192D56BB0037C9F3 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB58192D56BB0037C9F3 /* MenuController.m */; };
-		D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5A192D6CFF0037C9F3 /* background_cloth.png */; };
 		D744BB5E192D6F4E0037C9F3 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */; };
 		D744BB61192E35460037C9F3 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */; };
 		D744BB62192E35460037C9F3 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */; };
@@ -93,10 +91,9 @@
 		75031704192BDF3D0061675E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		75031706192BDF490061675E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		75031708192BDF5A0061675E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		7503170A192BF3880061675E /* onesie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = onesie.jpg; sourceTree = "<group>"; };
-		75FD696A192D7912006429D3 /* FirstScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FirstScreen.jpg; sourceTree = "<group>"; };
-		75FD696B192D7912006429D3 /* SecondScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SecondScreen.jpg; sourceTree = "<group>"; };
-		75FD696C192D7912006429D3 /* ThirdScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThirdScreen.jpg; sourceTree = "<group>"; };
+		754401C5192FCFB7003BEEB7 /* FirstScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FirstScreen.jpg; sourceTree = "<group>"; };
+		754401C6192FCFB7003BEEB7 /* SecondScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SecondScreen.jpg; sourceTree = "<group>"; };
+		754401C7192FCFB7003BEEB7 /* ThirdScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThirdScreen.jpg; sourceTree = "<group>"; };
 		7CF37704B78E4416BD2AD0DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0620F42D5154FADB0719C45 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D7335719192CF3D900E3AC90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 		D744BB55192D54AB0037C9F3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D744BB57192D56BB0037C9F3 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		D744BB58192D56BB0037C9F3 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
-		D744BB5A192D6CFF0037C9F3 /* background_cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_cloth.png; sourceTree = "<group>"; };
 		D744BB5C192D6F4E0037C9F3 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
 		D744BB5D192D6F4E0037C9F3 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
 		D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -159,15 +155,13 @@
 		750316B2192BDEE60061675E = {
 			isa = PBXGroup;
 			children = (
+				754401C5192FCFB7003BEEB7 /* FirstScreen.jpg */,
+				754401C6192FCFB7003BEEB7 /* SecondScreen.jpg */,
+				754401C7192FCFB7003BEEB7 /* ThirdScreen.jpg */,
 				D744BB66192E4ABF0037C9F3 /* JKImageTransitionSegue.h */,
 				D744BB67192E4ABF0037C9F3 /* JKImageTransitionSegue.m */,
 				D744BB5F192E35460037C9F3 /* 37x-Checkmark.png */,
 				D744BB60192E35460037C9F3 /* 37x-Checkmark@2x.png */,
-				75FD696A192D7912006429D3 /* FirstScreen.jpg */,
-				75FD696B192D7912006429D3 /* SecondScreen.jpg */,
-				75FD696C192D7912006429D3 /* ThirdScreen.jpg */,
-				D744BB5A192D6CFF0037C9F3 /* background_cloth.png */,
-				7503170A192BF3880061675E /* onesie.jpg */,
 				D7335721192D153900E3AC90 /* placeholder.png */,
 				750316C4192BDEE60061675E /* Onesie */,
 				750316E6192BDEE60061675E /* OnesieTests */,
@@ -316,7 +310,7 @@
 				ORGANIZATIONNAME = "Nuseir Yassin";
 				TargetAttributes = {
 					750316BA192BDEE60061675E = {
-						DevelopmentTeam = X8MSSVKD85;
+						DevelopmentTeam = 9UAPSKMLP4;
 					};
 					750316DE192BDEE60061675E = {
 						TestTargetID = 750316BA192BDEE60061675E;
@@ -347,17 +341,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D744BB5B192D6CFF0037C9F3 /* background_cloth.png in Resources */,
-				7503170B192BF3880061675E /* onesie.jpg in Resources */,
+				754401C9192FCFB7003BEEB7 /* SecondScreen.jpg in Resources */,
 				D744BB62192E35460037C9F3 /* 37x-Checkmark@2x.png in Resources */,
 				750316DA192BDEE60061675E /* Images.xcassets in Resources */,
-				75FD696E192D7912006429D3 /* SecondScreen.jpg in Resources */,
 				D744BB61192E35460037C9F3 /* 37x-Checkmark.png in Resources */,
 				750316C9192BDEE60061675E /* InfoPlist.strings in Resources */,
+				754401C8192FCFB7003BEEB7 /* FirstScreen.jpg in Resources */,
 				D7335722192D153900E3AC90 /* placeholder.png in Resources */,
 				750316D2192BDEE60061675E /* Main.storyboard in Resources */,
-				75FD696F192D7912006429D3 /* ThirdScreen.jpg in Resources */,
-				75FD696D192D7912006429D3 /* FirstScreen.jpg in Resources */,
+				754401CA192FCFB7003BEEB7 /* ThirdScreen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nuseir Yassin (9UAPSKMLP4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,7 +548,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82854ECF-76CC-4A96-9C91-DA97A3AF0AA2";
+				PROVISIONING_PROFILE = "A858428B-D183-45C6-B0C3-7B04AD6D4EEA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -567,7 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nuseir Yassin (H568QS9C8Y)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nuseir Yassin (9UAPSKMLP4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,7 +570,7 @@
 				GCC_PREFIX_HEADER = "Onesie/Onesie-Prefix.pch";
 				INFOPLIST_FILE = "Onesie/Onesie-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82854ECF-76CC-4A96-9C91-DA97A3AF0AA2";
+				PROVISIONING_PROFILE = "A858428B-D183-45C6-B0C3-7B04AD6D4EEA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
