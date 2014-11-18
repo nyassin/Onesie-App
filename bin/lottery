@@ -33,7 +33,7 @@ function AlertAllUsers() {
 		var notification = {
 		  	channels: ["user"],
 		  	data: {
-			    alert: "It's 5 PM! Today's Onesie: " + submission['title'] + ". See the image on Onesie!"
+			    alert: "Someone one the lottery and shared this with all of you! Today's Onesie: " + submission['title'] + ". See the image on Onesie!"
 		    }
 		};
 
@@ -68,7 +68,7 @@ function chooseUser() {
 	  	var notification = {
 		  	channels: [channel],
 		  	data: {
-			    alert: "You have won the lottery! You have 48 hours to send an image to everyone on Onesie! Go to the Submit section and write something!"
+			    alert: "You have won the lottery! You can now share your wisdom with 28,943 users! You have 48 hours to send an image and a caption to everyone on Onesie! Go to the Submit section and write something."
 		    }
 		};
 
@@ -129,7 +129,7 @@ function updateWinners() {
 				});
 			} 
 
-			if (hoursSince > 24 && hoursSince < 48) {
+			if (hoursSince > 24) {
 
 
 				//Remind Users

@@ -68,12 +68,9 @@ exports.chooseUser = function (req, res) {
 	  	var notification = {
 		  	channels: [channel],
 		  	data: {
-			    alert: "You have won the lottery! This is your lucky day. You have 48 hours to send an image and a caption to everyone on Onesie! Go to the Submit section and write something!"
+			    alert: "You have won the lottery! You can now share your wisdom with 28,943 users! You have 48 hours to send an image and a caption to everyone on Onesie! Go to the Submit section and write something."
 		    }
 		};
-
-
-		
 
 		kaiseki.getUser(user['objectId'], function(err, res, body, success) {
   
